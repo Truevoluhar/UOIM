@@ -27,7 +27,7 @@ router.post('/sign', async (req, res) => {
 
     console.log(saveid);
 
-    const qrCodeURL = "https://qrcode.jonpetek.repl.co/checkmeal/" + saveid; // QR code URL
+    const qrCodeURL = "https://uoim.onrender.com/checkmeal/" + saveid; // QR code URL
 
     // Generate the QR code image
     const qrCodeImage = await qrcode.toDataURL(qrCodeURL); // Generates a Data URL for the QR code image
