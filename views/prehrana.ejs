@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/buttons.css" />
+    <script src="/javascripts/devicedetector.js" defer></script>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer">
+      <br />
+      <h1>Prehrana</h1>
+      <br />
+      <p>Modul za spremljanje, urejanje in izdajanje hrane v azilnem domu.</p>
+      <br />
+      <br />
+      <form method="post" action="/personlist">
+        <button type="submit" class="mainButton personlist">Seznam oseb</button>
+      </form>
+      <br />
+      <form method="post" action="/qrcamera">
+        <button type="submit" class="mainButton gotocamera">Skeniraj QR kodo</button>
+      </form>
+      <br />
+      <form method="post" action="/resetstatus">
+        <button type="submit" class="mainButton personlist">Resetiraj statuse</button>
+      </form>
+    </div>
+  </body>
+</html>

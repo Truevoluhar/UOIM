@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Seznam oseb</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+    <link rel='stylesheet' href='/stylesheets/personlist.css' />
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer">
+      <h1>QR Koda osebe <%= user.firstname + " " + user.lastname %></h1>
+      <img src="<%= qrCodeImage %>" alt="QR Code">
+      <form method="post" action="/newperson/qrcode/goback">
+        <button class="moreButton" type="submit">Nazaj</button>
+      </form>
+    </div>
+  </body>
+</html>

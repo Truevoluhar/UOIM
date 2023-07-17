@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Identifikacijska kartica</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/personlist.css' />
+    <link rel='stylesheet' href='/stylesheets/personinfo.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer" style="text-align: left">
+      <div class="infoContainer">
+      <h1 style="text-align: center; background-color: white; padding: 3px; border-radius: 10px">
+        ID
+      </h1>
+      <br />
+        <h3 style="color: white; text-align: left">Ime</h3>
+      <h3 style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px"><%= user.firstname %></h3>
+        <br />
+      <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Priimek</h3>
+      <h3 style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px"><%= user.lastname %></h3>
+      <br />
+      <br />
+        <br />
+      <div style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column">
+      <img src="<%= qrCodeImage %>" alt="QR Code" style="max-width: 200px">
+      <br />
+      
+      </div>
+    </div>
+      <br />
+      <form method="post" action="/newperson/qrcode/goback">
+        <button type="submit" class="moreButton">Nazaj</button>
+      </form>
+    </div>
+  </body>
+</html>

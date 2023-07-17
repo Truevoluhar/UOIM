@@ -1,0 +1,22 @@
+.userContainer {
+  display:flex;
+  flex-direction: row;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px gray solid;
+  padding: 7px;
+  width: 80vw;
+  justify-content: space-between;
+}
+
+.personlistMainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textContainer2 {
+  display: flex;
+  flex-direction: row;
+}

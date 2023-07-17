@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="/stylesheets/style.css" rel="stylesheet" />
+ <link href="/stylesheets/landing.css" rel="stylesheet" />
+ <link href="https://css.gg/css" rel="stylesheet" />
+ <script src="https://kit.fontawesome.com/d3efbf50bc.js" crossorigin="anonymous"></script>
+
+ <title>Document</title>
+</head>
+<body>
+<%- include('./partials/header.ejs') %>
+ <div class="mainContainer">
+  <div class="cardContainer">
+    
+  <div class="card prehrana">
+   <i class="fas fa-spoon"></i>
+   <div class="cardtitle">Prehrana</div>
+   </div>
+    
+    <div class="card">
+     <i class="fas fa-box-open"></i>
+     <div class="cardtitle">Materialna oskrba</div>
+   </div>
+
+   <div class="card personlist">
+    <i class="fas fa-users"></i>
+    <div class="cardtitle">Seznam oseb</div> 
+  </div>
+
+  <div class="card newperson">
+    <i class="fas fa-plus"></i>
+    <div class="cardtitle">Dodaj osebo</div> 
+  </div>
+
+  <div class="card qrcamera">
+   <i class="fas fa-qrcode"></i>
+   <div class="cardtitle">QR Skener</div>
+ </div>
+    
+ <div class="card">
+  <i class="fas fa-key"></i>
+  <div class="cardtitle">Admin</div>
+</div>
+
+  </div>
+</div>
+</div>
+ </div>
+  <script>
+    document.querySelector(".prehrana").addEventListener("click", () => {
+      location.href = "/prehrana";
+    })
+    document.querySelector(".personlist").addEventListener("click", () => {
+      location.href = "/personlist";
+    })
+    document.querySelector(".newperson").addEventListener("click", () => {
+      location.href = "/newperson";
+    })
+    document.querySelector(".qrcamera").addEventListener("click", () => {
+      location.href = "/qrcamera";
+    })
+  </script>
+</body>
+</html>

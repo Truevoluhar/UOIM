@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Seznam oseb</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/personlist.css' />
+    <link rel="stylesheet" href="/stylesheets/meal.css" />
+    <link rel="stylesheet" href="/stylesheets/buttons.css" />
+  </head>
+  <body>
+    <div class="redmeal">
+      <h1>Oseba <br />
+        <%= user.firstname + " " + user.lastname %> <br />
+        je že prejela malico</h1>
+      <br />
+      <button class="cameraButton mainButton">QR Skener</button>
+      <br />
+      <button class="homeButton mainButton">Domov</button>
+    </div>
+    <script>
+      document.querySelector(".cameraButton").addEventListener("click", () => {
+        location.href = "/qrcamera";
+      });
+      document.querySelector(".homeButton").addEventListener("click", () => {
+        location.href = "/";
+      });
+    </script>
+  </body>
+</html>

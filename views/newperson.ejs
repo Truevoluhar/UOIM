@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Vnos nove osebe</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/newperson.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer">
+      <h1>Vnos nove osebe</h1>
+      <p>Vnesi ime in priimek za prijavo nove osebe v sistem.</p>
+      <br />
+      <br />
+      <form method="post" action="/newperson/sign" class="newPersonForm">
+        <label for="firstname" class="namelabel firstnamelabel">Ime</label>
+        <input type="text" name="firstname" class="inputstyle"/>
+        <br />
+        <label for="lastname" class="namelabel secondnamelabel">Priimek</label>
+        <input type="text" name="lastname" />
+        <br />
+        <button type="submit" class="mainButton newPerson">Vnos osebe</button>
+      </form>
+    </div>
+  </body>
+</html>

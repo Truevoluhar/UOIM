@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/buttons.css" />
+    <link rel="stylesheet" href="/stylesheets/camera.css" />
+     <link href="/stylesheets/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/jsqr" defer></script>
+    <script src="/javascripts/qr-scanner.js" defer></script>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="cameraContainer">
+      <br />
+      <br />
+      <h2 class="qrtitle">QR Skener</h2>
+      <video id="qr-video"></video>
+      <br />
+      <button class="moreButton back">Nazaj</button>
+    </div>
+  <script>
+    document.querySelector(".back").addEventListener("click", () => {
+      location.href = "/";
+    });
+  </script>
+  </body>
+</html>

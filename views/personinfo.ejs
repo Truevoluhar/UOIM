@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Seznam oseb</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/personlist.css' />
+    <link rel='stylesheet' href='/stylesheets/personinfo.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer" style="text-align: left">
+      <div class="infoContainer">
+      <h1 style="text-align: center; background-color: white; padding: 3px; border-radius: 10px">
+        Informacije o osebi
+      </h1>
+      <br />
+        <h3 style="color: white; text-align: left">Ime</h3>
+      <h3 style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px"><%= user.firstname %></h3>
+        <br />
+      <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Priimek</h3>
+      <h3 style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px"><%= user.lastname %></h3>
+      <br />
+        <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Današnja malica</h3>
+      <% if(user.meal === true) { %>
+        <h3 style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px">Prejel</h3>
+      <% } else if (user.meal === false) { %>
+        <h3 style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px">Ni prejel</h3>
+      <% } %>
+      <br />
+        <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Zgodovina malic</h3>
+        <form method="post" action="/newperson/qrcode/mealhistory/<%=user.id%>">
+        <button type="submit" class="moreButton">Prikaži</button>
+      </form>
+        <br />
+      <div style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column">
+      <img src="<%= qrCodeImage %>" alt="QR Code" style="max-width: 200px">
+      <br />
+      <form method="post" action="/newperson/qrcode/goback">
+        <button type="submit" class="moreButton">Nazaj</button>
+      </form>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
