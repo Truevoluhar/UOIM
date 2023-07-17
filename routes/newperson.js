@@ -41,8 +41,7 @@ router.post('/sign', async (req, res) => {
 router.get("/qrcode/:saveid", async (req, res) => {
   try {
     const saveid = req.params.saveid;
-    const qrCodeURL = "https://qrcode.jonpetek.repl.co/checkmeal/" + saveid; // QR code URL
-
+    const qrCodeURL = "https://uoim.onrender.com/checkmeal/" + saveid; // QR code URL
     // Generate the QR code image
     const qrCodeImage = await qrcode.toDataURL(qrCodeURL); // Generates a Data URL for the QR code image
     const user = await userModel.findById(req.params.saveid);
