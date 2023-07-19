@@ -56,8 +56,10 @@ h3 {
 }
 
 .item {
+  cursor: pointer;
 }
 
 .item:hover {
+  cursor: pointer;
   background-color: #F0F8FF;
 }

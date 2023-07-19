@@ -12,8 +12,18 @@
  <title>Document</title>
 </head>
 <body>
-<%- include('./partials/header.ejs') %>
+  <% if (username.permissions === "admin") { %>
+    <%- include('./partials/header.ejs') %>
+  <% } else { %>
+    <%- include('./partials/header-kuhinja.ejs') %>
+  <% } %>
+  <br />
+  <br />
+  <% if (username.permissions === "admin") { %>
  <div class="mainContainer">
+   <h2>Uporabnik: <%=username.username%></h2>
+   <br />
+   <br />
   <div class="cardContainer">
     
   <div class="card prehrana">
@@ -41,16 +51,17 @@
    <div class="cardtitle">QR Skener</div>
  </div>
     
- <div class="card">
+ <div class="card admin">
   <i class="fas fa-key"></i>
   <div class="cardtitle">Admin</div>
 </div>
 
+    <div class="card logout">
+  <i class="fas fa-arrow-right-from-bracket"></i>
+  <div class="cardtitle">Izpis</div>
+</div>
   </div>
-</div>
-</div>
- </div>
-  <script>
+   <script>
     document.querySelector(".prehrana").addEventListener("click", () => {
       location.href = "/prehrana";
     })
@@ -63,6 +74,43 @@
     document.querySelector(".qrcamera").addEventListener("click", () => {
       location.href = "/qrcamera";
     })
+    document.querySelector(".logout").addEventListener("click", () => {
+      location.href = "/logout";
+    })
+    document.querySelector(".admin").addEventListener("click", () => {
+      location.href = "/admin";
+    })
   </script>
+</div>
+   <% } %>
+     <% if (username.permissions === "kuhinja") { %>
+ <div class="mainContainer">
+   <h2>Uporabnik: <%=username.permissions%></h2>
+   <br />
+   <br />
+  <div class="cardContainer">
+    
+  <div class="card prehrana">
+   <i class="fas fa-spoon"></i>
+   <div class="cardtitle">Prehrana</div>
+   </div>
+
+  <div class="card logout">
+    <i class="fas fa-arrow-right-from-bracket"></i>
+    <div class="cardtitle">Izpis</div>
+  </div>
+
+  </div>
+   <script>
+    document.querySelector(".prehrana").addEventListener("click", () => {
+      location.href = "/prehrana";
+    })
+    document.querySelector(".logout").addEventListener("click", () => {
+      location.href = "/logout";
+    })
+  </script>
+</div>
+   <% } %>
+  
 </body>
 </html>

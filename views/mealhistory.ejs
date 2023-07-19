@@ -6,15 +6,28 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/personlist.css' />
     <link rel='stylesheet' href='/stylesheets/buttons.css' />
+    <link rel="stylesheet" href="/stylesheets/allmealhistory.css" />
   </head>
   <body>
     <%- include('./partials/header.ejs') %>
     <div class="mainContainer-second">
       <br />
-      <h2>Zgodovina malic</h2>
+      <h2>Pregled izdanih malic - <%=user.firstname + " " + user.lastname%></h2>
       <br />
-      <h3><%=user.firstname + " " + user.lastname%></h3>
+      <h3>test</h3>
       <h3>Podstran v izdelavi</h3>
+      <h3>Skupno število malic</h3>
+      <div class="monthContainer">
+        <p><%=numOfMeals%></p>
+      </div>
+      <br />
+      <h3>Vse prevzete malice</h3>
+      <% meals.forEach((meal) => { %>
+      <div class="monthContainer">
+          <p><%=meal%></p>
+      </div>
+      <% }) %>
+      <br />
       <button class="moreButton back">Nazaj</button>
     </div>
     <script>

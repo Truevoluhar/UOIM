@@ -23,9 +23,21 @@
         <button type="submit" class="mainButton gotocamera">Skeniraj QR kodo</button>
       </form>
       <br />
+      <form method="post" action="/allmealshistory">
+        <button type="submit" class="mainButton gotocamera">Pregled izdanih malic</button>
+      </form>
+      <br />
       <form method="post" action="/resetstatus">
         <button type="submit" class="mainButton personlist">Resetiraj statuse</button>
       </form>
+      <br />
+      <br />
+      <button class="moreButton back">Nazaj</button>
     </div>
+    <script>
+      document.querySelector(".back").addEventListener("click", () => {
+        location.href = "/";
+      });
+    </script>
   </body>
 </html>

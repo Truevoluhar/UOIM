@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Vnos nove osebe</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/newperson.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer">
+      <h1>Registracija v aplikacijo</h1>
+      <p></p>
+      <br />
+      <br />
+      <form method="post" action="/register" class="newPersonForm">
+        <label for="username" class="namelabel firstnamelabel">Uporabniško ime</label>
+        <input type="text" name="username" class="inputstyle"/>
+        <br />
+        <label for="password" class="namelabel secondnamelabel">Geslo</label>
+        <input type="password" name="password" />
+        <br />
+        <label for="password2" class="namelabel secondnamelabel">Ponovi geslo</label>
+        <input type="password" name="password2" />
+        <br />
+        <label for="permissions" class="namelabel secondnamelabel">Pravice računa</label>
+        <select name="permissions">
+          <option value="admin">Admin</option>
+          <option value="moderator">Moderator</option>
+          <option value="kuhinja">Prehrana</option>
+          <option value="oskrba">Materialna oskrba</option>
+        </select>
+        <br />
+         <button type="submit" class="mainButton newPerson">Registracija</button>
+        <h3><%=errormsg%></h3>
+      </form>
+      <br />
+      <br />
+      <br />
+      <button class="moreButton back">Nazaj</button>
+    </div>
+    <script>
+      document.querySelector(".back").addEventListener("click", () => {
+        location.href = "/admin";
+      });
+    </script>
+  </body>
+</html>

@@ -6,6 +6,9 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/personlist.css' />
     <link rel='stylesheet' href='/stylesheets/buttons.css' />
+    <link rel='stylesheet' href='/stylesheets/newperson.css' />
+    <link href="https://css.gg/css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/d3efbf50bc.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <%- include('./partials/header.ejs') %>
@@ -15,6 +18,14 @@
       <br />
       <p>Seznam vseh oseb vnešenih v aplikacijo.</p>
       <br />
+      <div class="searchContainer">
+        <form method="post" action="/personlist/search" id="searchinput">
+          <input type="text" name="searchinput"/>
+          <div class="searchicon" id="searchicon">
+            <button class="moreButton" type="submit">Išči</button>
+          </div>
+        </form>
+      </div>
       <div class="usersContainer">
       <% users.forEach(user => { %>
         <div class="userContainer">
@@ -36,9 +47,13 @@
       </div>
         <button class="moreButton back">Nazaj</button>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       document.querySelector(".back").addEventListener("click", () => {
         location.href = "/";
+      });
+      document.querySelector(".searchicon").addEventListener("click", () => {
+        location.href = "/personlist/search";
       });
     </script>
   </body>

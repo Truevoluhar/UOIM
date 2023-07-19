@@ -1,7 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-router.get("/", (req, res) => {
+const isAuth = (req, res, next) => {
+  if (req.session.loggedUser) {
+    next()
+  } else {
+    return res.redirect('/login')
+  }
+}
+
+router.get("/", isAuth, (req, res) => {
   res.render("qrcamera");
 })
 

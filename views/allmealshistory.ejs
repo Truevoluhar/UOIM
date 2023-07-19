@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Seznam oseb</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/personlist.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+    <link rel="stylesheet" href="/stylesheets/allmealhistory.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer-second">
+      <br />
+      <h2>Pregled izdanih malic</h2>
+      <br />
+      <h3>Mesečni pregled izdanih malic</h3>
+      <br />
+      <div style="width: 600px;">
+      <canvas id="myChart"></canvas>
+      </div>
+      <br />
+      <% months.forEach((month) => { %>
+        <div class="monthContainer">
+          <h4><%=month.month%></h3>
+          <p><%=month.numOfDates%></p>
+          <form action="/allmealshistory/<%=month.month%>" method="post">
+            <button class="moreButton" type="submit">Več</button>
+          </form>
+        </div>
+      <% }) %>
+      <button class="moreButton back">Nazaj</button>
+      <br />
+    </div>
+    <script>
+      document.querySelector(".back").addEventListener("click", () => {
+        location.href = "/";
+      });
+        let ctx = document.getElementById('myChart').getContext('2d');
+        let data = <%- JSON.stringify(months) %>;
+        let labels = data.map(item => item.month);
+        let values = data.map(item => item.numOfDates);
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Število malic',
+                    data: values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+  </body>
+</html>

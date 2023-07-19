@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Seznam oseb</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/personlist.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+    <link rel="stylesheet" href="/stylesheets/allmealhistory.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer-second">
+      <br />
+      <h2>Pregled izdanih malic - <%=month%></h2>
+      <br />
+      <h3>Število izdanih malic po dnevih</h3>
+        <div class="monthContainer" style="display:flex; flex-direction: column"; justify-content: flex-start; align-items: flex-start; text-align: left>
+          <% mealsByDate.forEach((meal) => { if (meal.day < 10) { %>
+            
+          <div style="display: flex; width: 100%"><h4><%=meal.day%>:&nbsp;&nbsp;&nbsp;&nbsp;</h4><p></p><p><%=meal.numOfDates%></p></div>
+          <% } else { %>
+            <div style="display: flex; width: 100%"><h4><%=meal.day%>:&nbsp;&nbsp;</h4><p></p><p><%=meal.numOfDates%></p></div>
+          <% }}) %>
+        </div>
+       <div style="width: 600px;">
+      <canvas id="myChart"></canvas>
+      </div>
+      <br />
+      <h3>Vse izdane malice</h3>
+      <% meals.forEach((meal) => { %>
+        <div class="monthContainer">
+          <p><%=meal%></p>
+        </div>
+      <% }) %>
+      <button class="moreButton back">Nazaj</button>
+    </div>
+    <script>
+      document.querySelector(".back").addEventListener("click", () => {
+        location.href = "/allmealshistory";
+      });
+      let ctx = document.getElementById('myChart').getContext('2d');
+        let data = <%- JSON.stringify(mealsByDate) %>;
+        let labels = data.map(item => item.day);
+        let values = data.map(item => item.numOfDates);
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Število malic',
+                    data: values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+  </body>
+</html>

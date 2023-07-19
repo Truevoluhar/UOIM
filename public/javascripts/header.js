@@ -23,3 +23,15 @@ document.querySelector(".seznamvseh").addEventListener("click", () => {
 document.querySelector(".domov").addEventListener("click", () => {
   window.location.href = "/";
 });
+
+document.querySelector(".prehrana-header").addEventListener("click", () => {
+  window.location.href = "/prehrana";
+});
+
+document.querySelector(".qrskener-header").addEventListener("click", () => {
+  window.location.href = "/qrcamera";
+});
+
+document.querySelector(".logout-header").addEventListener("click", () => {
+  window.location.href = "/logout";
+});

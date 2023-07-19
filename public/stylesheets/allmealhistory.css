@@ -1,0 +1,15 @@
+.monthContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ededed;
+  padding: 10px;
+  flex-direction: row;
+  width: 350px;
+  margin: 10px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.monthContainer:hover {
+  background-color: #c9c7c7;
+}

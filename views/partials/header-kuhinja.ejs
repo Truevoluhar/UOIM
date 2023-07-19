@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <div class="filler"></div>
+        <h3 class="title">UOIM</h3>
+        <div class="menu">
+          <div class="menuline"></div>
+          <div class="menuline"></div>
+          <div class="menuline"></div>
+        </div>
+      </header>
+      <ul id="list" class="visible">
+        <li class="item domov">Domov</li>
+        <li class="item prehrana-header">Prehrana</li>
+        <li class="item qrskener-header">QR Skener</li>
+        <li class="item logout-header">Izpis</li>
+      </ul>
+    </main>
+    <script>
+      let menu = document.querySelector(".menu");
+      let list = document.querySelector("#list");
+
+
+menu.addEventListener("click", () => {
+  if (list.classList.contains("visible")) {
+    list.classList.remove("visible");
+  } else {
+    list.classList.add("visible");
+  }
+})
+      document.querySelector(".domov").addEventListener("click", () => {
+  window.location.href = "/";
+});
+
+document.querySelector(".prehrana-header").addEventListener("click", () => {
+  window.location.href = "/prehrana";
+});
+
+document.querySelector(".qrskener-header").addEventListener("click", () => {
+  window.location.href = "/qrcamera";
+});
+
+document.querySelector(".logout-header").addEventListener("click", () => {
+  window.location.href = "/logout";
+});
+    </script>
+  </body>
+</html>

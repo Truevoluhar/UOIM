@@ -7,6 +7,9 @@ var userSchema = new mongoose.Schema({
   qrcode: Boolean,
   qrlink: String,
   mealHistory: [Date],
+  note: String,
+  hasMaterial: Boolean,
+  material: [String]
 }, { collection: "users"});
 
 let userModel = mongoose.model('userModel', userSchema);

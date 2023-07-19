@@ -1,6 +1,8 @@
 .newPersonForm {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 input[type=text], select {
@@ -11,4 +13,44 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchicon {
+  margin-left: 15px;
+  background-color: #0095ff;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.sicon {
+  color: white;
+  padding: 6px;
+  font-size: 1.6rem;
+}
+
+#searchinput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.textarea {
+  height: 200px;
+  width: 80vw;
 }

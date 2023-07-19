@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
 var mongoose = require('mongoose');
 var schedule = require('node-schedule');
 var userModel = require('./models/usermodel');
@@ -16,6 +17,10 @@ var newPersonRouter = require("./routes/newperson");
 var personlistRouter = require("./routes/personlist");
 var checkmealRouter = require("./routes/checkmeal");
 var qrscannerRouter = require("./routes/qrcamera");
+var loginRouter = require("./routes/login");
+var logoutRouter = require("./routes/logout");
+var registerRouter = require("./routes/register");
+var adminRouter = require("./routes/admin");
 
 var app = express();
 
@@ -28,6 +33,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'uoim123',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Note: in a real app, this should be set to true and your app should use HTTPS
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -35,6 +46,10 @@ app.use("/newperson", newPersonRouter);
 app.use("/personlist", personlistRouter);
 app.use("/checkmeal", checkmealRouter);
 app.use("/qrcamera", qrscannerRouter);
+app.use("/login", loginRouter);
+app.use("/register", registerRouter);
+app.use("/logout", logoutRouter);
+app.use("/admin", adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

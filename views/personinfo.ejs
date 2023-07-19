@@ -10,6 +10,8 @@
   </head>
   <body>
     <%- include('./partials/header.ejs') %>
+      <br />
+      <br />
     <div class="mainContainer" style="text-align: left">
       <div class="infoContainer">
       <h1 style="text-align: center; background-color: white; padding: 3px; border-radius: 10px">
@@ -21,6 +23,12 @@
         <br />
       <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Priimek</h3>
       <h3 style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px"><%= user.lastname %></h3>
+        <br />
+      <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Opombe</h3>
+      <p style="background-color: white; padding: 3px; text-align: left; border-radius: 5px; padding-top: 6px; padding-bottom: 6px"><%=user.note%></p>
+        <form method="get" action="/newperson/note/<%=user.id%>">
+          <button type="submit" class="moreButton" style="margin-top: 5px">Uredi</button>
+        </form>
       <br />
         <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Današnja malica</h3>
       <% if(user.meal === true) { %>
@@ -31,8 +39,8 @@
       <br />
         <h3 style="color: white; text-align: left"; border-radius: 5px; padding-top: 6px; padding-bottom: 6px>Zgodovina malic</h3>
         <form method="post" action="/newperson/qrcode/mealhistory/<%=user.id%>">
-        <button type="submit" class="moreButton">Prikaži</button>
-      </form>
+          <button type="submit" class="moreButton" style="margin-top: 5px">Prikaži</button>
+        </form>
         <br />
       <div style="display: flex; width: 100%; justify-content: center; align-items: center; flex-direction: column">
       <img src="<%= qrCodeImage %>" alt="QR Code" style="max-width: 200px">

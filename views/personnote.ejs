@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Test - Vnos nove osebe</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/newperson.css' />
+    <link rel='stylesheet' href='/stylesheets/buttons.css' />
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="mainContainer">
+      <h1>Vnesi opombo</h1>
+      <p></p>
+      <br />
+      <br />
+      <form method="post" action="/newperson/note/<%=user.id%>" class="newPersonForm">
+        <textarea  name="note" class="textarea"><%=user.note%></textarea>
+        <br />
+         <button type="submit" class="mainButton newPerson">Dodaj</button>
+      </form>
+      <br />
+      <button class="moreButton back">Nazaj</button>
+    </div>
+    <script>
+      document.querySelector(".back").addEventListener("click", () => {
+        location.href = "/personlist/getqrcode/<%=user.id%>"
+      })
+    </script>
+  </body>
+</html>
