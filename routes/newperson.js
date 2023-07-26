@@ -56,7 +56,7 @@ router.get("/qrcode/:saveid", isAuth, async (req, res) => {
     const update = await userModel.findByIdAndUpdate(req.params.saveid, {
       qrlink: qrCodeURL
     })
-    res.render('qrcode', { qrCodeImage, user }); // Render the "qrcode" template with the QR code image data
+    res.render("personcard", { user: user, qrCodeImage: qrCodeImage });// Render the "qrcode" template with the QR code image data
   } catch (error) {
     res.status(500).json({ error: 'An error occurred while generating the QR code.' });
   }
